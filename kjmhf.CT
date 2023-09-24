@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>35</ID>
+      <Description>"𝙈𝙖𝙞𝙣 𝘾𝙝𝙚𝙖𝙩𝙨"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"𝙂𝙞𝙫𝙚 𝙈𝙖𝙭 𝙎𝙪𝙣"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+"popcapgame1.exe"+1F4E5:
+ db 90 90
+
+[DISABLE]
+"popcapgame1.exe"+1F4E5:
+ db 7E 0A
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"𝙐𝙣𝙡𝙞𝙢𝙞𝙩𝙚𝙙 𝙎𝙪𝙣𝙨"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : popcapgame1.exe
+  Version: 
+  Date   : 2023-09-23
+  Author : Lware
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,popcapgame1.exe,89 B7 78 55 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edi+00005578],esi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 B7 78 55 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: popcapgame1.exe+1F636
+
+popcapgame1.exe+1F61E: CC                             - int 3 
+popcapgame1.exe+1F61F: CC                             - int 3 
+popcapgame1.exe+1F620: 56                             - push esi
+popcapgame1.exe+1F621: 8B B7 78 55 00 00              - mov esi,[edi+00005578]
+popcapgame1.exe+1F627: 8B D7                          - mov edx,edi
+popcapgame1.exe+1F629: E8 12 FF FF FF                 - call popcapgame1.exe+1F540
+popcapgame1.exe+1F62E: 03 C6                          - add eax,esi
+popcapgame1.exe+1F630: 3B D8                          - cmp ebx,eax
+popcapgame1.exe+1F632: 7F 0C                          - jg popcapgame1.exe+1F640
+popcapgame1.exe+1F634: 2B F3                          - sub esi,ebx
+// ---------- INJECTING HERE ----------
+popcapgame1.exe+1F636: 89 B7 78 55 00 00              - mov [edi+00005578],esi
+// ---------- DONE INJECTING  ----------
+popcapgame1.exe+1F63C: B0 01                          - mov al,01
+popcapgame1.exe+1F63E: 5E                             - pop esi
+popcapgame1.exe+1F63F: C3                             - ret 
+popcapgame1.exe+1F640: 8B 8F A4 00 00 00              - mov ecx,[edi+000000A4]
+popcapgame1.exe+1F646: 8B 01                          - mov eax,[ecx]
+popcapgame1.exe+1F648: 8B 15 F0 F8 72 00              - mov edx,[popcapgame1.exe+32F8F0]
+popcapgame1.exe+1F64E: 8B 80 D8 00 00 00              - mov eax,[eax+000000D8]
+popcapgame1.exe+1F654: 52                             - push edx
+popcapgame1.exe+1F655: FF D0                          - call eax
+popcapgame1.exe+1F657: C7 87 90 55 00 00 46 00 00 00  - mov [edi+00005590],00000046
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"𝘿𝙞𝙨𝙖𝙗𝙡𝙚 𝙎𝙪𝙣 𝙋𝙞𝙘𝙠𝙪𝙥𝙨"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : popcapgame1.exe
+  Version: 
+  Date   : 2023-09-23
+  Author : Lware
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,popcapgame1.exe,01 88 78 55 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //add [eax+00005578],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 88 78 55 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: popcapgame1.exe+1F4D0
+
+popcapgame1.exe+1F4C4: C2 04 00                       - ret 0004
+popcapgame1.exe+1F4C7: CC                             - int 3 
+popcapgame1.exe+1F4C8: CC                             - int 3 
+popcapgame1.exe+1F4C9: CC                             - int 3 
+popcapgame1.exe+1F4CA: CC                             - int 3 
+popcapgame1.exe+1F4CB: CC                             - int 3 
+popcapgame1.exe+1F4CC: CC                             - int 3 
+popcapgame1.exe+1F4CD: CC                             - int 3 
+popcapgame1.exe+1F4CE: CC                             - int 3 
+popcapgame1.exe+1F4CF: CC                             - int 3 
+// ---------- INJECTING HERE ----------
+popcapgame1.exe+1F4D0: 01 88 78 55 00 00              - add [eax+00005578],ecx
+// ---------- DONE INJECTING  ----------
+popcapgame1.exe+1F4D6: 8B 88 78 55 00 00              - mov ecx,[eax+00005578]
+popcapgame1.exe+1F4DC: 83 EC 0C                       - sub esp,0C
+popcapgame1.exe+1F4DF: 81 F9 06 27 00 00              - cmp ecx,00002706
+popcapgame1.exe+1F4E5: 7E 0A                          - jle popcapgame1.exe+1F4F1
+popcapgame1.exe+1F4E7: C7 80 78 55 00 00 06 27 00 00  - mov [eax+00005578],00002706
+popcapgame1.exe+1F4F1: 81 B8 78 55 00 00 40 1F 00 00  - cmp [eax+00005578],00001F40
+popcapgame1.exe+1F4FB: 7C 32                          - jl popcapgame1.exe+1F52F
+popcapgame1.exe+1F4FD: 8B 80 A4 00 00 00              - mov eax,[eax+000000A4]
+popcapgame1.exe+1F503: 8B 88 4C 09 00 00              - mov ecx,[eax+0000094C]
+popcapgame1.exe+1F509: C6 44 24 04 01                 - mov byte ptr [esp+04],01
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"𝙋𝙡𝙖𝙣𝙩 𝘾𝙝𝙚𝙖𝙩𝙨"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"𝙄𝙣𝙛𝙞𝙣𝙞𝙩𝙚 𝙃𝙚𝙖𝙡𝙩𝙝"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : PlantsVsZombies.exe
+  Version: 
+  Date   : 2020-05-24
+  Author :
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(plantscantdie,83 46 ? ? 8b 4e ? c7 86)//83 46 40 FC 8B 4E 40)
+alloc(godplant,$50)
+
+label(code return)
+
+godplant:
+
+code:
+  push eax
+  mov eax,[esi+44]
+  mov dword ptr [esi+40],eax
+  pop eax
+  mov ecx,[esi+40]
+  jmp return
+
+plantscantdie:
+  jmp godplant
+  nop 2
+return:
+registersymbol(plantscantdie)
+
+[DISABLE]
+
+plantscantdie:
+  db 83 46 40 FC 8B 4E 40
+
+unregistersymbol(plantscantdie)
+dealloc(godplant)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "PlantsVsZombies.exe"+12FCF0
+
+"PlantsVsZombies.exe"+12FCD8: 85 FF                          -  test edi,edi
+"PlantsVsZombies.exe"+12FCDA: 7F 14                          -  jg PlantsVsZombies.exe+12FCF0
+"PlantsVsZombies.exe"+12FCDC: 8B 46 0C                       -  mov eax,[esi+0C]
+"PlantsVsZombies.exe"+12FCDF: 8B 4E 08                       -  mov ecx,[esi+08]
+"PlantsVsZombies.exe"+12FCE2: 6A 02                          -  push 02
+"PlantsVsZombies.exe"+12FCE4: 6A 04                          -  push 04
+"PlantsVsZombies.exe"+12FCE6: 50                             -  push eax
+"PlantsVsZombies.exe"+12FCE7: 51                             -  push ecx
+"PlantsVsZombies.exe"+12FCE8: 8B 4D 04                       -  mov ecx,[ebp+04]
+"PlantsVsZombies.exe"+12FCEB: E8 20 CE ED FF                 -  call PlantsVsZombies.exe+CB10
+// ---------- INJECTING HERE ----------
+"PlantsVsZombies.exe"+12FCF0: 83 46 40 FC                    -  add dword ptr [esi+40],-04
+"PlantsVsZombies.exe"+12FCF4: 8B 4E 40                       -  mov ecx,[esi+40]
+// ---------- DONE INJECTING  ----------
+"PlantsVsZombies.exe"+12FCF7: C7 86 B4 00 00 00 32 00 00 00  -  mov [esi+000000B4],00000032
+"PlantsVsZombies.exe"+12FD01: 8B 45 00                       -  mov eax,[ebp+00]
+"PlantsVsZombies.exe"+12FD04: E8 C7 3A F2 FF                 -  call PlantsVsZombies.exe+537D0
+"PlantsVsZombies.exe"+12FD09: 84 C0                          -  test al,al
+"PlantsVsZombies.exe"+12FD0B: 74 21                          -  je PlantsVsZombies.exe+12FD2E
+"PlantsVsZombies.exe"+12FD0D: 81 7D 54 0C FE FF FF           -  cmp [ebp+54],FFFFFE0C
+"PlantsVsZombies.exe"+12FD14: 7D 18                          -  jnl PlantsVsZombies.exe+12FD2E
+"PlantsVsZombies.exe"+12FD16: 8B 46 24                       -  mov eax,[esi+24]
+"PlantsVsZombies.exe"+12FD19: 83 F8 03                       -  cmp eax,03
+"PlantsVsZombies.exe"+12FD1C: 74 0A                          -  je PlantsVsZombies.exe+12FD28
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"𝙍𝙖𝙥𝙞𝙙 𝙁𝙞𝙧𝙚 𝙋𝙡𝙖𝙣𝙩𝙨"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : PlantsVsZombies.exe
+  Version:
+  Date   : 2020-05-24
+  Author : DBYTE
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(rf2,0F 85 98 FE FF FF 83 F8) // should be unique
+aobscan(rf2jmpto,83 bf ? ? ? ? ? 0f 85 ? ? ? ? 8b 37)
+
+registersymbol(rf2 rf2jmpto)
+rf2:
+  db 90 90 90 90 90 90
+[DISABLE]
+
+rf2:
+  //db 0F 85 98 FE FF FF
+  jne rf2jmpto
+
+unregistersymbol(rf2 rf2jmpto)
+{
+// ORIGINAL CODE - INJECTION POINT: "PlantsVsZombies.exe"+64A96
+
+"PlantsVsZombies.exe"+64A74: 33 C9                 -  xor ecx,ecx
+"PlantsVsZombies.exe"+64A76: E8 45 2B 00 00        -  call PlantsVsZombies.exe+675C0
+"PlantsVsZombies.exe"+64A7B: 85 C0                 -  test eax,eax
+"PlantsVsZombies.exe"+64A7D: 0F 84 B1 FE FF FF     -  je PlantsVsZombies.exe+64934
+"PlantsVsZombies.exe"+64A83: 8B 4F 1C              -  mov ecx,[edi+1C]
+"PlantsVsZombies.exe"+64A86: 6A 00                 -  push 00
+"PlantsVsZombies.exe"+64A88: 51                    -  push ecx
+"PlantsVsZombies.exe"+64A89: 50                    -  push eax
+"PlantsVsZombies.exe"+64A8A: E9 9F FE FF FF        -  jmp PlantsVsZombies.exe+6492E
+"PlantsVsZombies.exe"+64A8F: 83 BF 90 00 00 00 01  -  cmp dword ptr [edi+00000090],01
+// ---------- INJECTING HERE ----------
+"PlantsVsZombies.exe"+64A96: 0F 85 98 FE FF FF     -  jne PlantsVsZombies.exe+64934
+// ---------- DONE INJECTING  ----------
+"PlantsVsZombies.exe"+64A9C: 83 F8 12              -  cmp eax,12
+"PlantsVsZombies.exe"+64A9F: 0F 85 8D 00 00 00     -  jne PlantsVsZombies.exe+64B32
+"PlantsVsZombies.exe"+64AA5: 8B 5F 1C              -  mov ebx,[edi+1C]
+"PlantsVsZombies.exe"+64AA8: 8B 37                 -  mov esi,[edi]
+"PlantsVsZombies.exe"+64AAA: 8B 8F 9C 00 00 00     -  mov ecx,[edi+0000009C]
+"PlantsVsZombies.exe"+64AB0: 8D 53 FF              -  lea edx,[ebx-01]
+"PlantsVsZombies.exe"+64AB3: 8B C6                 -  mov eax,esi
+"PlantsVsZombies.exe"+64AB5: 89 54 24 14           -  mov [esp+14],edx
+"PlantsVsZombies.exe"+64AB9: E8 F2 F1 FE FF        -  call PlantsVsZombies.exe+53CB0
+"PlantsVsZombies.exe"+64ABE: 8B 8F A0 00 00 00     -  mov ecx,[edi+000000A0]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"𝘿𝙞𝙨𝙖𝙗𝙡𝙚 𝙋𝙡𝙖𝙘𝙚𝙢𝙚𝙣𝙩 𝘾𝙤𝙤𝙡𝙙𝙤𝙬𝙣"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+popcapgame1.exe+958C5:
+ db 90 90
+
+[DISABLE]
+popcapgame1.exe+958C5:
+ db 7E 14
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>39</ID>
+      <Description>"𝙎𝙝𝙤𝙥 𝘾𝙝𝙚𝙖𝙩𝙨"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"𝙐𝙣𝙡𝙞𝙢𝙞𝙩𝙚𝙙 𝙎𝙝𝙤𝙥 𝙈𝙤𝙣𝙚𝙮"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+"popcapgame1.exe"+9B321:
+ db E9 1E 01 00 00 90
+
+[DISABLE]
+"popcapgame1.exe"+9B321:
+ db 0F 8D 1D 01 00 00
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>36</ID>
+      <Description>"𝙕𝙤𝙢𝙗𝙞𝙚 𝘾𝙝𝙚𝙖𝙩𝙨"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"𝙏𝙪𝙧𝙣 𝙯𝙤𝙢𝙗𝙞𝙚 𝙝𝙚𝙖𝙡𝙩𝙝 𝙩𝙤 1"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : popcapgame1.exe
+  Version: 
+  Date   : 2022-04-10
+  Author : newbane2
+
+  This script sets damage dealt to 2147483647
+}
+
+define(address,"popcapgame1.exe"+1462A2)
+define(bytes,8B 6C 24 0C 56)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov ebp,7FFFFFFF
+  push esi
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov ebp,[esp+0C]
+  // push esi
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: popcapgame1.exe+1462A2
+
+popcapgame1.exe+146298: CC                    - int 3 
+popcapgame1.exe+146299: CC                    - int 3 
+popcapgame1.exe+14629A: CC                    - int 3 
+popcapgame1.exe+14629B: CC                    - int 3 
+popcapgame1.exe+14629C: CC                    - int 3 
+popcapgame1.exe+14629D: CC                    - int 3 
+popcapgame1.exe+14629E: CC                    - int 3 
+popcapgame1.exe+14629F: CC                    - int 3 
+popcapgame1.exe+1462A0: 53                    - push ebx
+popcapgame1.exe+1462A1: 55                    - push ebp
+// ---------- INJECTING HERE ----------
+popcapgame1.exe+1462A2: 8B 6C 24 0C           - mov ebp,[esp+0C]
+// ---------- DONE INJECTING  ----------
+popcapgame1.exe+1462A6: 56                    - push esi
+popcapgame1.exe+1462A7: 57                    - push edi
+popcapgame1.exe+1462A8: 8B F9                 - mov edi,ecx
+popcapgame1.exe+1462AA: 8B 4F 28              - mov ecx,[edi+28]
+popcapgame1.exe+1462AD: 8B D8                 - mov ebx,eax
+popcapgame1.exe+1462AF: 83 F9 10              - cmp ecx,10
+popcapgame1.exe+1462B2: 0F 84 A0 00 00 00     - je popcapgame1.exe+146358
+popcapgame1.exe+1462B8: 80 BF EC 00 00 00 00  - cmp byte ptr [edi+000000EC],00
+popcapgame1.exe+1462BF: 0F 85 93 00 00 00     - jne popcapgame1.exe+146358
+popcapgame1.exe+1462C5: 83 F9 01              - cmp ecx,01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"𝙁𝙧𝙚𝙚𝙯𝙚 𝙕𝙤𝙢𝙗𝙞𝙚𝙨"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(fzomb,83 7e ? ? d9 5e)//83 7E 24 07          D9 5E 2C
+
+registersymbol(fzomb)
+
+
+fzomb+4:
+ db 90 90 90
+
+//PlantsVsZombies.exe+12ADE8:
+// db 90 90 90
+ 
+ 
+[DISABLE]
+fzomb+4:
+ db D9 5E 2C
+
+//PlantsVsZombies.exe+12ADE8:
+// db D9 5E 30
+
+
+unregistersymbol(fzomb)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>38</ID>
+      <Description>"𝙕𝙚𝙣 𝙂𝙖𝙧𝙙𝙚𝙣 𝘾𝙝𝙚𝙖𝙩𝙨"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"𝙐𝙣𝙡𝙞𝙢𝙞𝙩𝙚𝙙 𝘽𝙪𝙜 𝙎𝙥𝙧𝙖𝙮"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+"popcapgame1.exe"+12DB83:
+db 90 90 90 90 90 90
+ 
+ 
+[DISABLE]
+"popcapgame1.exe"+12DB83:
+db FF 88 28 02 00 00
+
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"𝙐𝙣𝙡𝙞𝙢𝙞𝙩𝙚𝙙 𝘾𝙝𝙤𝙘𝙤𝙡𝙖𝙩𝙚"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+"popcapgame1.exe"+12D727:
+db 90 90 90 90 90 90
+ 
+ 
+[DISABLE]
+"popcapgame1.exe"+12D727:
+db FF 88 54 02 00 00
+
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"𝙐𝙣𝙡𝙞𝙢𝙞𝙩𝙚𝙙 𝙁𝙚𝙧𝙩𝙞𝙡𝙞𝙯𝙚𝙧"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+"popcapgame1.exe"+12DA8B:
+db 90 90 90 90 90 90
+ 
+ 
+[DISABLE]
+"popcapgame1.exe"+12DA8B:
+db FF 88 24 02 00 00
+
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>47</ID>
+      <Description>"𝙎𝙥𝙚𝙚𝙙𝙝𝙖𝙘𝙠"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>46</ID>
+          <Description>"5𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(5))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"10𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(10))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>51</ID>
+          <Description>"15𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(15))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"20𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(20))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"50𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(50))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>54</ID>
+          <Description>"100𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(100))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>55</ID>
+          <Description>"200𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(200))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>56</ID>
+          <Description>"500𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(500))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"1000𝙭 𝙎𝙥𝙚𝙚𝙙"</Description>
+          <Color>FFDE7A</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+luacall(speedhack_setSpeed(1000))
+
+
+[DISABLE]
+luacall(speedhack_setSpeed(1))
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"Game ID"</Description>
+      <Color>FF8080</Color>
+      <VariableType>Byte</VariableType>
+      <Address>731C50</Address>
+      <Offsets>
+        <Offset>918</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [eax+64],bl</Description>
+      <AddressString>popcapgame1.exe+31CE0</AddressString>
+      <Before>
+        <Byte>BD</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>58</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>47</Byte>
+        <Byte>83</Byte>
+        <Byte>FF</Byte>
+        <Byte>04</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <LuaScript>
+function renameComponents(c)
+  local i
+  if c.Component then
+    for i=0,c.ComponentCount-1 do
+      renameComponents(c.Component[i])
+    end
+  end
+
+  if c.Caption then
+    c.Caption=''
+  end
+end
+
+
+for i=0,getFormCount()-1 do
+    local form = getForm(i)
+    for j=0,form.ControlCount-1 do
+      renameComponents(form)
+    end
+
+    form.Caption='Plants vs Zombies | Lware.Solutions | Steam Edition'
+end
+
+registerFormAddNotification(function(f)
+  f.registerCreateCallback(function(frm)
+    renameComponents(f)
+  end)
+end)
+
+</LuaScript>
+</CheatTable>
